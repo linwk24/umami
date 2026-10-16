@@ -1,13 +1,22 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "$schema": "https://vercel.sh",
   "services": {
     "app": {
       "root": ".",
-      "framework": "nextjs"
+      "framework": "nextjs",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "mcp",
+          "format": "url",
+          "env": "MCP_URL"
+        }
+      ]
     },
     "mcp": {
       "root": "packages/mcp",
-      "runtime": "node"
+      "runtime": "node",
+      "entrypoint": "index.js"
     }
   },
   "rewrites": [
