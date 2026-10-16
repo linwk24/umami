@@ -1,30 +1,7 @@
 {
   "$schema": "https://vercel.sh",
-  "services": {
-    "app": {
-      "root": ".",
-      "framework": "nextjs",
-      "bindings": [
-        {
-          "type": "service",
-          "service": "mcp",
-          "format": "url",
-          "env": "MCP_URL"
-        }
-      ]
-    },
-    "mcp": {
-      "root": "packages/mcp",
-      "runtime": "node",
-      "entrypoint": "index.js"
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": {
-        "service": "app"
-      }
-    }
-  ]
+  "cleanUrls": true,
+  "framework": "nextjs",
+  "buildCommand": "pnpm build",
+  "outputDirectory": ".next"
 }
